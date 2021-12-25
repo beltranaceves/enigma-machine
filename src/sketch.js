@@ -18,5 +18,5 @@ function draw() {
 
 function keyPressed() {
   var encryptedKey = enigmaMachine.encrypt(key);
-  console.log(key, encryptedKey);
+  console.log(key.toUpperCase(), encryptedKey);
 }

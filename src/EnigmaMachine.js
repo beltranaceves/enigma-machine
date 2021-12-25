@@ -35,9 +35,7 @@ function EnigmaMachine(rotors, ETW, UKW, plugboard) {
   };
 
   this.rotateRotors = function () {
-    console.log("Starting Rotation of rotors", this.rotors);
     this.rotateRotor(this.rotors[0], 0);
-    console.log("Finishing Rotation of rotors");
   };
 
   this.rotateRotor = function (rotor, i) {
