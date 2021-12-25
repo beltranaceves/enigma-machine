@@ -16,7 +16,7 @@ function EnigmaMachine(rotors, ETW, UKW, plugboard) {
 
   this.translateWithRotors = function (input) {
     var CTI = input; // Current Transformed Input
-    CTI = this.entryWheel.encryption[CTI];
+    CTI = this.entryWheel.encrypt(CTI);
     for (let rotor of this.rotors) {
       CTI = rotor.encrypt(CTI);
     }
@@ -24,7 +24,7 @@ function EnigmaMachine(rotors, ETW, UKW, plugboard) {
     for (let i = 0; i < this.rotors.length; i++) {
       CTI = this.rotors[this.rotors.length - 1 - i].decrypt(CTI);
     }
-    //TODO: Maybe findKeyByValue de ETW, revisar diagrama
+    CTI = this.entryWheel.decrypt(CTI);
     return CTI;
   };
 

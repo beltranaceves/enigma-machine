@@ -1,0 +1,6 @@
+{
+  "devDependencies": {
+    "eslint": "^8.5.0",
+    "eslint-plugin-p5js": "^0.3.2"
+  }
+}
