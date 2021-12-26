@@ -3,6 +3,7 @@ function EnigmaMachine(rotors, ETW, UKW, plugboard) {
   this.rotors = rotors; // List with rotors from left to right
   this.reflector = UKW;
   this.plugboard = plugboard;
+  this.lampKeyboard = new LampKeyboard();
 
   this.encrypt = function (input) {
     input = input.toUpperCase();
@@ -44,4 +45,8 @@ function EnigmaMachine(rotors, ETW, UKW, plugboard) {
     }
     rotor.setNextLetter();
   };
+
+  this.render = function () {
+    this.lampKeyboard.render();
+  }
 }

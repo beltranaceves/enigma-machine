@@ -10,10 +10,12 @@ function setup() {
   
   var plugboard = new Plugboard("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
   enigmaMachine = new EnigmaMachine(rotors, ETW, UKW, plugboard);
+
+  createCanvas(3000, 1600);
 }
 
 function draw() {
-  // enigmaMachine.render();
+  enigmaMachine.render();
 }
 
 function keyPressed() {
