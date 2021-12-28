@@ -24,8 +24,10 @@ function draw() {
 
 function keyPressed() {
   var encryptedKey = enigmaMachine.encrypt(key);
-  enigmaMachine.toggleLetter(encryptedKey);
-  litLetters[key.toUpperCase()] = encryptedKey;
+  if (encryptedKey != null) {
+    enigmaMachine.toggleLetter(encryptedKey);
+    litLetters[key.toUpperCase()] = encryptedKey;
+  }
 }
 
 function keyReleased() {
