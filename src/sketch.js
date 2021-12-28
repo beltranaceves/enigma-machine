@@ -1,4 +1,5 @@
 let enigmaMachine;
+let litLetters = {};
 
 function setup() {
   var ETW = modelToRotor(models["ETW-K"]);
@@ -11,14 +12,33 @@ function setup() {
   var plugboard = new Plugboard("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
   enigmaMachine = new EnigmaMachine(rotors, ETW, UKW, plugboard);
 
-  createCanvas(3000, 1600);
+  createCanvas(windowWidth, windowHeight);
+
+  window.addEventListener('resize', resizeEnigmaMachine);
 }
 
 function draw() {
+  background(10);
   enigmaMachine.render();
 }
 
 function keyPressed() {
   var encryptedKey = enigmaMachine.encrypt(key);
-  console.log(key.toUpperCase(), encryptedKey);
+  enigmaMachine.toggleLetter(encryptedKey);
+  litLetters[key.toUpperCase()] = encryptedKey;
+}
+
+function keyReleased() {
+  var litLetter = litLetters[key.toUpperCase()];
+  if (litLetter) {
+    enigmaMachine.toggleLetter(litLetter);
+    delete litLetters[key.toUpperCase()];
+  }
+  if (Object.keys(litLetters) == 0) {
+    resizeEnigmaMachine();
+  }
+}
+
+function resizeEnigmaMachine() {
+  enigmaMachine.resize();
 }

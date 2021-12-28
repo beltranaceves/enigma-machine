@@ -46,7 +46,18 @@ function EnigmaMachine(rotors, ETW, UKW, plugboard) {
     rotor.setNextLetter();
   };
 
+  this.toggleLetter = function (letter) {
+    this.lampKeyboard.toggleLetter(letter.toUpperCase());
+  }
+
   this.render = function () {
+    push();
+    translate(windowWidth/20, 0);
     this.lampKeyboard.render();
+    pop();
+  }
+
+  this.resize = function () {
+    this.lampKeyboard = new LampKeyboard();
   }
 }
