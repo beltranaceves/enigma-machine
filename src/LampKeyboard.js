@@ -5,7 +5,9 @@ function LampKeyboard() {
   this.thirdRow = "PYXCVBNML";
   this.lights = [];
 
-  var divWidth = windowWidth;
+  // var divWidth = windowWidth;
+  // var divHeight = windowHeight;
+  var divWidth = document.querySelector('#div2').clientWidth;
   var divHeight = windowHeight;
   //TODO: take a look at this and find a better way to do it, maybe responsive?
   var offsetX = (divWidth / this.firstRow.length);

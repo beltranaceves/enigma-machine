@@ -12,7 +12,9 @@ function setup() {
   var plugboard = new Plugboard("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
   enigmaMachine = new EnigmaMachine(rotors, ETW, UKW, plugboard);
 
-  createCanvas(windowWidth, windowHeight);
+  var myCanvas = createCanvas(windowWidth, windowHeight);// TODO: do this better wtf
+
+  myCanvas.parent('div2');
 
   window.addEventListener('resize', resizeEnigmaMachine);
 }
