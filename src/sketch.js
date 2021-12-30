@@ -2,21 +2,28 @@ let enigmaMachine;
 let litLetters = {};
 
 function setup() {
-  var ETW = modelToRotor(models["ETW-K"]);
-  var UKW = modelToRotor(models["UKW-K"]);
-  var rotorIII = modelToRotor(models["III-W"]);
-  var rotorII = modelToRotor(models["II-W"]);
-  var rotorI = modelToRotor(models["I-W"]);
+  var ETW = modelToRotor(wikipediaModels["ETW-K"]);
+  var UKW = modelToRotor(wikipediaModels["UKW-K"]);
+  var rotorIII = modelToRotor(wikipediaModels["III-W"]);
+  var rotorII = modelToRotor(wikipediaModels["II-W"]);
+  var rotorI = modelToRotor(wikipediaModels["I-W"]);
   var rotors = [rotorI, rotorII, rotorIII];
   
   var plugboard = new Plugboard("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
   enigmaMachine = new EnigmaMachine(rotors, ETW, UKW, plugboard);
 
   var myCanvas = createCanvas(windowWidth, windowHeight);// TODO: do this better wtf
+  setupHtml(myCanvas);
+}
 
+function setupHtml(myCanvas) {
   myCanvas.parent('div2');
-
+  populateSelects();
   window.addEventListener('resize', resizeEnigmaMachine);
+  var form = document.querySelector('form');
+  form.addEventListener('change', function() {
+      alert('Hi!');
+  });
 }
 
 function draw() {
@@ -45,4 +52,8 @@ function keyReleased() {
 
 function resizeEnigmaMachine() {
   enigmaMachine.resize();
+}
+
+function populateSelects() {
+  
 }

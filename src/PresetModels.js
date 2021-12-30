@@ -1,4 +1,330 @@
-const models = {
+const cryptoMuseumModels = {
+  "Enigma B": {
+    name: "Model A-133",
+    keyboard: "ABCDEFGHIJKLMNOPQRSTUVXYZÅÄÖ",
+    date: "6 April 1925",
+    rotors: {
+      ETW: {
+        encryption: "ABCDEFGHIJKLMNOPQRSTUVXYZÅÄÖ",
+        notches: []
+      },
+      I: {
+        encryption: "PSBGÖXQJDHOÄUCFRTEZVÅINLYMKA",
+        notches: ["Ä"]
+      },
+      II: {
+        encryption: "CHNSYÖADMOTRZXBÄIGÅEKQUPFLVJ",
+        notches: ["Ä"]
+      },
+      III: {
+        encryption: "ÅVQIAÄXRJBÖZSPCFYUNTHDOMEKGL",
+        notches: ["Ä"]
+      },
+      UKW: {
+        encryption: "LDGBÄNCPSKJAVFZHXUIÅRMQÖOTEY",
+        notches: []
+      }
+    }
+  },
+  "Enigma D": {
+    name: "Model A26",
+    keyboard: "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+    date: "1926",
+    rotors: {
+      ETW: {
+        encryption: "QWERTZUIOASDFGHJKPYXCVBNML",
+        notches: []
+      },
+      I: {
+        encryption: "LPGSZMHAEOQKVXRFYBUTNICJDW",
+        notches: ["Y"]
+      },
+      II: {
+        encryption: "SLVGBTFXJQOHEWIRZYAMKPCNDU",
+        notches: ["E"]
+      },
+      III: {
+        encryption: "CJGDPSHKTURAWZXFMYNQOBVLIE",
+        notches: ["N"]
+      },
+      UKW: {
+        encryption: "IMETCGFRAYSQBZXWLHKDVUPOJN",
+        notches: []
+      }
+    }
+  },
+  "Enigma I": {
+    name: "German Army and Air Force",
+    keyboard: "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+    date: "WWII",
+    rotors: {
+      ETW: {
+        encryption: "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+        notches: []
+      },
+      I: {
+        encryption: "EKMFLGDQVZNTOWYHXUSPAIBRCJ",
+        notches: ["Q"]
+      },
+      II: {
+        encryption: "AJDKSIRUXBLHWTMCQGZNPYFVOE",
+        notches: ["E"]
+      },
+      III: {
+        encryption: "BDFHJLCPRTXVZNYEIWGAKMUSQO",
+        notches: ["V"]
+      },
+      IV: {
+        encryption: "ESOVPZJAYQUIRHXLNFTGKDCMWB",
+        notches: ["J"]
+      },
+      V: {
+        encryption: "VZBRGITYUPSDNHLXAWMJQOFECK",
+        notches: ["Z"]
+      },
+      "UKW-A": {
+        encryption: "EJMZALYXVBWFCRQUONTSPIKHGD",
+        notches: []
+      },
+      "UKW-B": {
+        encryption: "YRUHQSLDPXNGOKMIEBFZCWVJAT",
+        notches: []
+      },
+      "UKW-C": {
+        encryption: "FVPJIAOYEDRZXWGCTKUQSBNMHL",
+        notches: []
+      }
+    }
+  },
+  "Norway Enigma": {
+    name: "Postware usage",
+    keyboard: "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+    date: "1945",
+    rotors: {
+      ETW: {
+        encryption: "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+        notches: []
+      },
+      I: {
+        encryption: "WTOKASUYVRBXJHQCPZEFMDINLG",
+        notches: ["Q"]
+      },
+      II: {
+        encryption: "GJLPUBSWEMCTQVHXAOFZDRKYNI",
+        notches: ["E"]
+      },
+      III: {
+        encryption: "JWFMHNBPUSDYTIXVZGRQLAOEKC",
+        notches: ["V"]
+      },
+      IV: {
+        encryption: "FGZJMVXEPBWSHQTLIUDYKCNRAO",
+        notches: ["J"]
+      },
+      V: {
+        encryption: "HEJXQOTZBVFDASCILWPGYNMURK",
+        notches: ["Z"]
+      },
+      UKW: {
+        encryption: "MOWJYPUXNDSRAIBFVLKZGQCHET",
+        notches: []
+      }
+    }
+  },
+  "Sonder Enigma": {
+    name: "Sondermaschine",
+    keyboard: "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+    date: "1980s",
+    rotors: {
+      ETW: {
+        encryption: "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+        notches: []
+      },
+      I: {
+        encryption: "VEOSIRZUJDQCKGWYPNXAFLTHMB",
+        notches: ["Q"]
+      },
+      II: {
+        encryption: "UEMOATQLSHPKCYFWJZBGVXINDR",
+        notches: ["E"]
+      },
+      III: {
+        encryption: "TZHXMBSIPNURJFDKEQVCWGLAOY",
+        notches: ["V"]
+      },
+      UKW: {
+        encryption: "CIAGSNDRBYTPZFULVHEKOQXWJM",
+        notches: []
+      }
+    }
+  },
+  "Enigma M3": {
+    name: "German Navy",
+    keyboard: "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+    date: "WWII",
+    rotors: {
+      ETW: {
+        encryption: "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+        notches: []
+      },
+      I: {
+        encryption: "EKMFLGDQVZNTOWYHXUSPAIBRCJ",
+        notches: ["Q"]
+      },
+      II: {
+        encryption: "AJDKSIRUXBLHWTMCQGZNPYFVOE",
+        notches: ["E"]
+      },
+      III: {
+        encryption: "BDFHJLCPRTXVZNYEIWGAKMUSQO",
+        notches: ["V"]
+      },
+      IV: {
+        encryption: "ESOVPZJAYQUIRHXLNFTGKDCMWB",
+        notches: ["J"]
+      },
+      V: {
+        encryption: "VZBRGITYUPSDNHLXAWMJQOFECK",
+        notches: ["Z"]
+      },
+      VI: {
+        encryption: "JPGVOUMFYQBENHZRDKASXLICTW",
+        notches: ["Z", "M"]
+      },
+      VII: {
+        encryption: "NZJHGRCXMYSWBOUFAIVLPEKQDT",
+        notches: ["Z", "M"]
+      },
+      VIII: {
+        encryption: "FKQHTLXOCBJSPDZRAMEWNIUYGV",
+        notches: ["Z", "M"]
+      },
+      "UKW-B": {
+        encryption: "YRUHQSLDPXNGOKMIEBFZCWVJAT",
+        notches: []
+      },
+      "UKW-C": {
+        encryption: "FVPJIAOYEDRZXWGCTKUQSBNMHL",
+        notches: []
+      }
+    }
+  },
+  "Enigma M4": {
+    name: "U-boat division",
+    keyboard: "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+    date: "2 February 1942",
+    rotors: {
+      ETW: {
+        encryption: "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+        notches: []
+      },
+      I: {
+        encryption: "EKMFLGDQVZNTOWYHXUSPAIBRCJ",
+        notches: ["Q"]
+      },
+      II: {
+        encryption: "AJDKSIRUXBLHWTMCQGZNPYFVOE",
+        notches: ["E"]
+      },
+      III: {
+        encryption: "BDFHJLCPRTXVZNYEIWGAKMUSQO",
+        notches: ["V"]
+      },
+      IV: {
+        encryption: "ESOVPZJAYQUIRHXLNFTGKDCMWB",
+        notches: ["J"]
+      },
+      V: {
+        encryption: "VZBRGITYUPSDNHLXAWMJQOFECK",
+        notches: ["Z"]
+      },
+      VI: {
+        encryption: "JPGVOUMFYQBENHZRDKASXLICTW",
+        notches: ["Z", "M"]
+      },
+      VII: {
+        encryption: "NZJHGRCXMYSWBOUFAIVLPEKQDT",
+        notches: ["Z", "M"]
+      },
+      VIII: {
+        encryption: "FKQHTLXOCBJSPDZRAMEWNIUYGV",
+        notches: ["Z", "M"]
+      },
+      "Beta": {
+        encryption: "LEYJVCNIXWPBQMDRTAKZGFUHOS",
+        notches: []
+      },
+      "Gamma": {
+        encryption: "FSOKANUERHMBTIYCWLQPZXVGJD",
+        notches: []
+      },
+      "UKW-B": {
+        encryption: "ENKQAUYWJICOPBLMDXZVFTHRGS",
+        notches: []
+      },
+      "UKW-C": {
+        encryption: "RDOBJNTKVEHMLFCWZAXGYIPSUQ",
+        notches: []
+      }
+    }
+  },
+  "Enigma K": {
+    name: "Commercial Enigma A27",
+    keyboard: "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+    date: "Unkown",
+    rotors: {
+      ETW: {
+        encryption: "QWERTZUIOASDFGHJKPYXCVBNML",
+        notches: []
+      },
+      I: {
+        encryption: "LPGSZMHAEOQKVXRFYBUTNICJDW",
+        notches: ["Y"]
+      },
+      II: {
+        encryption: "SLVGBTFXJQOHEWIRZYAMKPCNDU",
+        notches: ["E"]
+      },
+      III: {
+        encryption: "CJGDPSHKTURAWZXFMYNQOBVLIE",
+        notches: ["N"]
+      },
+      UKW: {
+        encryption: "IMETCGFRAYSQBZXWLHKDVUPOJN",
+        notches: []
+      }
+    }
+  },
+  "Swiss-K": {
+    name: "Swiss Enigma K variant",
+    keyboard: "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+    date: "1939",
+    rotors: {
+      ETW: {
+        encryption: "QWERTZUIOASDFGHJKPYXCVBNML",
+        notches: []
+      }, 
+      I: {
+        encryption: "PEZUOHXSCVFMTBGLRINQJWAYDK",
+        notches: ["Y"]
+      },
+      II: {
+        encryption: "ZOUESYDKFWPCIQXHMVBLGNJRAT",
+        notches: ["E"]
+      },
+      III: {
+        encryption: "EHRVXGAOBQUSIMZFLYNWKTPDJC",
+        notches: ["N"]
+      },
+      UKW: {
+        encryption: "IMETCGFRAYSQBZXWLHKDVUPOJN",
+        notches: []
+      }
+    }
+  }
+};
+
+const wikipediaModels = {
   "IC": {
     name: "IC",
     encryption: "DMTWSILRUYQNKFEJCAZBPGXOHV",
